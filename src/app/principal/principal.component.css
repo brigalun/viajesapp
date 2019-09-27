@@ -1,0 +1,19 @@
+.imagen-fondo {
+  background-image: url("../../assets/img/background-1.jpeg");
+}
+
+.text-justificado {
+  text-align: justify;
+}
+
+.text-size {
+  font-size: 25px;
+}
+
+.text-proyecto {
+  font-size: 22px;
+}
+
+body {
+  font-size: 16px;
+}
