@@ -7,6 +7,8 @@ import { LoginComponent } from './components/login/login.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PagoComponent } from './components/pago/pago.component';
+import { RegistroComponent } from './components/registro/registro.component';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { PagoComponent } from './components/pago/pago.component';
     LoginComponent,
     BusquedaComponent,
     NavbarComponent,
-    PagoComponent
+    PagoComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule
