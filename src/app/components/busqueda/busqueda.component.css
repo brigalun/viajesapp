@@ -1,0 +1,217 @@
+body{
+
+
+  background: #f4f4f4;
+  background-size: cover;
+}
+
+.main-section{
+  margin:0 auto;
+  margin-top:25%;
+  padding: 0;
+}
+
+.modal-content{
+  background-color: #3b4652;
+  opacity: .85;
+  padding: 0 20px;
+  box-shadow: 0px 0px 3px #848484;
+}
+.user-img{
+  margin-top: -50px;
+  margin-bottom: 35px;
+}
+
+.user-img img{
+  width: 100xp;
+  height: 100px;
+  box-shadow: 0px 0px 3px #848484;
+  border-radius: 50%;
+}
+
+.form-group input{
+  height: 42px;
+  font-size: 18px;
+  border:0;
+  padding-left: 54px;
+  border-radius: 5px;
+}
+
+.form-group::before{
+  font-family: "Font Awesome\ 5 Free";
+  position: absolute;
+  left: 28px;
+  font-size: 22px;
+  padding-top:4px;
+}
+
+.form-group#user-group::before{
+  content: "\f007";
+}
+
+.form-group#contrasena-group::before{
+  content: "\f023";
+}
+
+/*button{
+    width: 60%;
+    margin: 5px 0 25px;
+}*/
+
+.forgot{
+  padding: 5px 0;
+}
+
+.forgot a{
+  color: white;
+}
+.containerpadre{
+  position: relative;
+  padding: 0;
+}
+.container2 {
+  position: absolute;
+  left: 500px;
+  top: 0;
+}
+
+
+.tpvuelo{
+  margin: 100px 0 10px 30px;
+  width: 400px;
+  border:solid 5px #ccc;
+  border-radius:5px;
+  /*box-shadow: 0px 20px 15px -15px #818181;*/
+}
+#cbox{
+  margin: 0 0 0 25px;
+}
+
+.busqueda{
+  margin: 10px 0 10px 30px;
+  width: 400px;
+  border:solid 5px #ccc;
+  border-radius:5px;
+  /*box-shadow: 0px 20px 15px -15px #818181;*/
+}
+
+.labelbusqueda{
+  margin: 15px 0 15px 15px;
+  width: 60px;
+}
+
+.datoVuelos{
+  margin-right: 10px;
+  width: 300px;
+}
+
+.fechasbusqueda{
+  margin: 10px 0 10px 30px;
+  width: 400px;
+  border:solid 5px #ccc;
+  border-radius:5px;
+  /*box-shadow: 0px 20px 15px -15px #818181;*/
+}
+
+.labelfecha{
+  margin: 15px 0 15px 15px;
+  width: 100px;
+}
+
+#rbox{
+  margin: 0 0 0 25px;
+}
+
+.categoriavuelo{
+  margin: 10px 0 10px 30px;
+  width: 400px;
+  border:solid 5px #ccc;
+  border-radius:5px;
+  /*box-shadow: 0px 20px 15px -15px #818181;*/
+}
+
+.labelcategory{
+  margin: 15px 0 15px 15px;
+  width: 110px;
+}
+
+.labelnumpersonas{
+  margin: 15px 0 15px 15px;
+  width: 110px;
+}
+
+.numeropersonas{
+  width: 40px;
+}
+
+/* tabla */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 800px;
+}
+
+/* Style the buttons that are used to open the tab content Estilo de los botones cuando se abre la tabla */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Cambio de color de background de los  buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+  height: 400px;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+  background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+

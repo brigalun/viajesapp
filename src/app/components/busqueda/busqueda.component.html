@@ -1,0 +1,110 @@
+<!-----Resultados------->
+<div class="containerpadre">
+  <div class="container1">
+    <div class="tpvuelo" >
+      <a class="tplb">Tipo de vuelo</a><br>
+      <input type="checkbox" id="cbox1" value="f_checkbox"> <label for="cbox1">Redondo</label><br>
+      <input type="checkbox" id="cbox2" value="s_checkbox"> <label for="cbox2">Sencillo</label><br>
+      <input type="checkbox" id="cbox3" value="t_checkbox"> <label for="cbox3">Multi-destino</label>
+    </div>
+
+    <div class="busqueda">
+      <label class="labelbusqueda">Origen</label><input type="text" class="datoVuelos" name="origenvuelo"><br>
+      <label class="labelbusqueda">Destino</label><input type="text" class="datoVuelos" name="destinovuelo"><br>
+    </div>
+
+    <div class="fechasbusqueda">
+      <label class="labelfecha">Fecha Ida</label><input type="date" class="fechaVuelos" name="fechaida"><br>
+      <label class="labelfecha">Fecha Vuelta</label><input type="date" class="fechaVuelos" name="fechavuelta"><br>
+      <input type="radio" name="sinfecha" id="rbox"><label class="labelsfecha">Sin fecha de vuelta</label>
+    </div>
+
+    <div class="categoriavuelo">
+      <label class="labelcategory">Categoria</label>
+      <select name="categoriavuelo">
+        <option value="economy">Económica</option>
+        <option value="premiumeconomy">Premium economy</option>
+        <option value="Business">Ejecutiva/Business</option>
+        <option value="firstclass">Primera clase</option>
+      </select>
+      <br>
+
+      <label class="labelnumpersonas">N° de personas</label><input type="number" class="numeropersonas" name="numeropersonas" value="1">
+    </div>
+  </div>
+
+  <div class="container2">
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" (click)="openCity($event, 'PrecioAereo')">Aereolínea</button>
+      <button class="tablinks" (click)="openCity($event, 'PrecioDia')">Dia</button>
+      <button class="tablinks" (click)="openCity($event, 'Trending')">Tendencias</button>
+    </div>
+
+    <div id="PrecioAereo" class="tabcontent">
+      <h3>Tabla con nombre de las aereolíneas</h3>
+      <p>En este espacio se mostrará los precios individuales por aereolínea y día seleccionado</p>
+    </div>
+
+    <div id="PrecioDia" class="tabcontent">
+      <h3>Tabla de precios</h3>
+      <p>Se mostrará el precio que tiene el vuelo dependiendo el día</p>
+    </div>
+
+    <div id="Trending" class="tabcontent">
+      <h3>Lista de precios</h3>
+      <p>Se mostrará los precios de mayor a menor</p>
+    </div>
+
+    <div class="tablainformacion">
+      <table>
+        <tr>
+          <th>Aereolínea 1</th>
+          <th>Precio</th>
+          <th>Duración</th>
+        </tr>
+        <tr>
+          <td>1 escala</td>
+          <td>$$$</td>
+          <td>Hrs</td>
+        </tr>
+        <tr>
+          <td>2 escalas</td>
+          <td>$$$</td>
+          <td>Hrs</td>
+        </tr>
+        <tr>
+          <td>3 o más escalas</td>
+          <td>$$$</td>
+          <td>Hrs</td>
+        </tr>
+      </table>
+      <br>
+
+      <table id="t01">
+        <tr>
+          <th>Aereolínea 2</th>
+          <th>Precio</th>
+          <th>Duracion</th>
+        </tr>
+        <tr>
+          <td>1 escala</td>
+          <td>$$$</td>
+          <td>Hrs</td>
+        </tr>
+        <tr>
+          <td>2 escalas</td>
+          <td>$$$</td>
+          <td>Hrs</td>
+        </tr>
+        <tr>
+          <td>3 o más escalas</td>
+          <td>$$$</td>
+          <td>Hrs</td>
+        </tr>
+      </table>
+      <br>
+    </div>
+
+  </div>
+</div>
