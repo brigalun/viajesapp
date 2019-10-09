@@ -6,7 +6,9 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { LoginComponent } from './components/login/login.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PagoComponent } from './components/pago/pago.component';
 import { RegistroComponent } from './components/registro/registro.component';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { RegistroComponent } from './components/registro/registro.component';
     LoginComponent,
     BusquedaComponent,
     NavbarComponent,
+    PagoComponent,
     RegistroComponent
   ],
   imports: [
