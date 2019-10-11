@@ -6,6 +6,9 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { LoginComponent } from './components/login/login.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { PagoComponent } from './components/pago/pago.component';
+import { RegistroComponent } from './components/registro/registro.component';
+
 
 
 @NgModule({
@@ -15,7 +18,12 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginComponent,
     BusquedaComponent,
     NavbarComponent,
+<<<<<<< HEAD
     
+=======
+    PagoComponent,
+    RegistroComponent
+>>>>>>> f75c4da4257475bcfc44178ab84e65e0f5514d78
   ],
   imports: [
     BrowserModule
