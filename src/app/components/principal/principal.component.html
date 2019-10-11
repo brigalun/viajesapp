@@ -1,37 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <title>RelaxTravel</title>
 
-    <!--JQUERY-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    
-    <!-- Los iconos tipo Solid de Fontawesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    
-
-</head>
-<body>
-
-         
-       <!-- Navegacion-->
-              
 <!--carousel-->
-
-<div class= "container mb-5">
+<!--div class= "container mb-5"-->
   <div class="row">
 
     <div class="col-md-6">
-     
+      <div class="container1">
+        <div class="tpvuelo" >
+          <a class="tplb">Tipo de vuelo</a><br>
+          <input type="checkbox" id="cbox1" value="f_checkbox"> <label for="cbox1">Redondo</label><br>
+          <input type="checkbox" id="cbox2" value="s_checkbox"> <label for="cbox2">Sencillo</label><br>
+          <input type="checkbox" id="cbox3" value="t_checkbox"> <label for="cbox3">Multi-destino</label>
+        </div>
+
+        <div class="busqueda">
+          <label class="labelbusqueda">Origen</label><input type="text" class="datoVuelos" name="origenvuelo"><br>
+          <label class="labelbusqueda">Destino</label><input type="text" class="datoVuelos" name="destinovuelo"><br>
+        </div>
+
+        <div class="fechasbusqueda">
+          <label class="labelfecha">Fecha Ida</label><input type="date" class="fechaVuelos" name="fechaida"><br>
+          <label class="labelfecha">Fecha Vuelta</label><input type="date" class="fechaVuelos" name="fechavuelta"><br>
+          <input type="radio" name="sinfecha" id="rbox"><label class="labelsfecha">Sin fecha de vuelta</label>
+        </div>
+
+        <div class="categoriavuelo">
+          <label class="labelcategory">Categoria</label>
+          <select name="categoriavuelo">
+            <option value="economy">Económica</option>
+            <option value="premiumeconomy">Premium economy</option>
+            <option value="Business">Ejecutiva/Business</option>
+            <option value="firstclass">Primera clase</option>
+          </select>
+          <br>
+
+          <label class="labelnumpersonas">N° de personas</label><input type="number" class="numeropersonas" name="numeropersonas" value="1">
+        </div>
+      </div>
     </div>
-   
+
 
     <div class="col-md-6">
       <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
@@ -73,11 +79,5 @@
             </a>
       </div>
     </div>
-  </div> 
-</div>
-
-   
-
-</body>
-</html>
-
+  </div>
+<!--/div-->

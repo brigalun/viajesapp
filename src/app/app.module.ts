@@ -8,6 +8,8 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PagoComponent } from './components/pago/pago.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import {RouterModule} from '@angular/router';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 
 
 
@@ -18,15 +20,20 @@ import { RegistroComponent } from './components/registro/registro.component';
     LoginComponent,
     BusquedaComponent,
     NavbarComponent,
-<<<<<<< HEAD
-    
-=======
     PagoComponent,
+    AboutusComponent,
     RegistroComponent
->>>>>>> f75c4da4257475bcfc44178ab84e65e0f5514d78
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      {path: '', redirectTo: 'principal', pathMatch: 'full'},
+      {path: 'home', component: PrincipalComponent},
+      {path: 'registro', component: RegistroComponent},
+      {path: 'login', component: LoginComponent},
+      {path: 'pago', component: PagoComponent},
+      {path: 'aboutus', component: AboutusComponent}
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
