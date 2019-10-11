@@ -1,122 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>RelaxTravel</title>
 
+    <!--JQUERY-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
+    <!-- Los iconos tipo Solid de Fontawesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    
 
+</head>
+<body>
 
-<div class="container imagen-fondo"></div>
+         
+       <!-- Navegacion-->
+              
+<!--carousel-->
 
-<div class="container mt-5">
+<div class= "container mb-5">
   <div class="row">
-    <div class="col-md-12">
-      <h1 class="display-3 text-center">Relax travel</h1>
-      <p class="text-center text-proyecto">Quiénes Somos</p>
-    </div>
-  </div>
-</div>
 
-
-<!-- MISION VISION-->
-
-<div class="container mb-5">
-  <div class="row">
     <div class="col-md-6">
-      <h2 class="display-4 text-center"><strong>MISIÓN</strong></h2>
-      <p class="mt-5 text-justificado">
-        Convertirnos en la mayor agencia de viajes del mercado Latinoamericano, obteniendo una rentabilidad final, de al menos el triple que el promedio del mercado.
-    </p>
+     
     </div>
+   
 
-     <div class="col-md-6">
-      <h2 class="display-4 text-center"><strong>VISIÓN</strong></h2>
-      <p class="mt-5 text-justificado">
-        Ser lo más práctico para nuestros clientes y los más eficiente para nuestros proveedores del mercado siendo líderes en precio y volumen, apoyándonos en la excelencia de nuestros recursos humanos y nuestra plataforma tecnológica.
-    </p>
+    <div class="col-md-6">
+      <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="10000" >
+              <img src="../../../assets/img/chihuaha.jpeg" class="d-block w-100" alt="Chihuaha">
+              <div class="carousel-caption">
+                <h3 class="text" >Chihuahua</h3>
+              </div>
+            </div>
+            <div class="carousel-item" data-interval="10000">
+              <img src="../../../assets/img/jalisco.jpg" class="d-block w-100" alt="Jalicso">
+              <div class="carousel-caption">
+                <h3 class="text">Jalisco</h3>
+              </div>
+            </div>
+            <div class="carousel-item" data-interval="10000">
+              <img src="../../../assets/img/quintanaroo.jpg" class="d-block w-100" alt="Quintana Roo">
+              <div class="carousel-caption">
+                <h3 class="text">Quintana Roo</h3>
+              </div>
+            </div>
+            <div class="carousel-item" data-interval="10000">
+              <img src="../../../assets/img/oaxaca.jpg" class="d-block w-100" alt="Oaxaca">
+              <div class="carousel-caption">
+                <h3 class="text" >Oaxaca</h3>
+              </div>
+            </div>
+          </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+      </div>
     </div>
-  </div>
+  </div> 
 </div>
 
+   
 
-
-
-<div class="container mb-5">
-  <!-- QUIENES SOMOS-->
-  <div class="row">
-    <div class="col-md-12 my-5">
-      <hr>
-      <h3 class="display-1">Conócenos</h3>
-      <p class="text-center text-proyecto">Quienes Somos</p>
-    </div>
-  </div>
-
-<div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img style="width:100%;" src="../../../assets/img/background-1.jpeg">
-        </div>
-
-        <div class="col-md-6">
-          <p class="mt-5 text-justificado">
-            Somos un equipo de jovenes universitarios interesados en viajar y conocer nuestro país así como tambien otras partes del mundo, por tal razón hemos
-            tomado la decisión de crear <strong>RelaxTravel</strong> para que así como nosotros tenemos el gusto por conocer nuevos lugares, otras personas también
-            tengan la oportunidad de conocer nuevos y fascinantes destinos.
-            <br><br>
-            Así que vamos, a buscar y reservar vuelos!
-        </p>
-        </div>
-      </div>
-    </div>
-
-
-
-
-      <!-- Brigam -->
-      <div class="row mt-4">
-        <div class="col-md-6 mt-5">
-          <h2 class="display-4">Brigan</h2>
-          <p class="text-size">Desarrollador frontend; manejo de angular y conexiones a servicos web.</p>
-        </div>
-
-        <div class="col-md-6">
-          <img style="width:75%;" src="../../../assets/img/Brigam.jpeg">
-        </div>
-      </div>
-
-      <!-- Uriel -->
-      <div class="row mt-4">
-      	 <div class="col-md-6 mt-5">
-          <h2 class="display-4">Uriel</h2>
-          <p class="text-size">Desarrollador frontend; su principal foco es hacer que la experiencia de usuario sea la mejor.</p>
-        </div>
-
-        <div class="col-md-6">
-          <img style="width:75%;" src="../../../assets/img/Uriel.jpeg">
-        </div>
-
-      </div>
-
-      <!-- Arturo -->
-      <div class="row mt-4">
-        <div class="col-md-6 mt-5">
-          <h2 class="display-4">Arturo</h2>
-          <p class="text-size">Desarrollador backend; manejo y mantenimiento de bases de datos, optimización de consultas.</p>
-        </div>
-
-        <div class="col-md-6">
-          <img style="width:75%;" src="../../../assets/img/Arturo.jpeg">
-        </div>
-      </div>
-
-      <!-- Israel -->
-      <div class="row mt-4">
-
-        <div class="col-md-6 my-5">
-          <h2 class="display-4">Israel</h2>
-          <p class="text-size">Desarrollador backend; mantenimiento y desarrollo de nuevos servicios web.</p>
-        </div>
-
-          <div class="col-md-6">
-          <img style="width:75%;" src="../../../assets/img/Israel.jpg">
-        </div>
-
-      </div>
-    </div>
+</body>
+</html>
 

@@ -1,19 +1,69 @@
-.imagen-fondo {
-  background-image: url("../../../assets/img/background-1.jpeg");
-}
-
-.text-justificado {
-  text-align: justify;
-}
-
-.text-size {
-  font-size: 25px;
-}
-
-.text-proyecto {
-  font-size: 22px;
-}
-
 body {
-  font-size: 16px;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
 }
+
+
+#user-group::before{
+    content: "\f007";
+}
+
+.carousel-item{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.carousel-item img{
+    width: 100xp;
+    height: 400px;
+    box-shadow: 0px 0px 10px #848484;
+    }
+
+
+
+
+
+
+.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transform: scale(1.8);
+    animation: scaleImage 5s ease-out forwards;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: calc(10px + 3vw);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    text-transform: uppercase;
+    color: #DCDCDC;
+   /* background-color: #fff;*/
+    mix-blend-mode: multiply;
+    opacity: 0;
+    animation: fadeInText 3s 2s ease-out forwards;
+}
+
+@keyframes scaleImage {
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInText {
+    80% {
+        opacity: 50;
+    }
+}
+
+
