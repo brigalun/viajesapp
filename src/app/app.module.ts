@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,8 +21,8 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
     BusquedaComponent,
     NavbarComponent,
     PagoComponent,
-    RegistroComponent,
-    AboutusComponent
+    AboutusComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
