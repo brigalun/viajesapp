@@ -27,7 +27,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {path: '', redirectTo: 'principal', pathMatch: 'full'},
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: PrincipalComponent},
       {path: 'registro', component: RegistroComponent},
       {path: 'login', component: LoginComponent},

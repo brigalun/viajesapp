@@ -1,6 +1,12 @@
 
 <!--carousel-->
-<!--div class= "container mb-5"-->
+<div class= "container mb-5" >
+  <div class="row mt-5" style="background-image: url('../../../assets/img/quintanaroo.jpg')">
+    <div class="col-md-12">
+      <p class="display-1">Búsqueda</p>
+    </div>
+  </div>
+
   <div class="row">
 
     <div class="col-md-6">
@@ -80,4 +86,65 @@
       </div>
     </div>
   </div>
-<!--/div-->
+
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" (click)="openCity($event, 'PrecioAereo')">Aereolínea</button>
+        <button class="tablinks" (click)="openCity($event, 'PrecioDia')">Dia</button>
+        <button class="tablinks" (click)="openCity($event, 'Trending')">Tendencias</button>
+      </div>
+
+      <div id="PrecioAereo" class="tabcontent">
+        <h3>Tabla con nombre de las aereolíneas</h3>
+        <p>En este espacio se mostrará los precios individuales por aereolínea y día seleccionado</p>
+      </div>
+
+      <div id="PrecioDia" class="tabcontent">
+        <h3>Tabla de precios</h3>
+        <p>Se mostrará el precio que tiene el vuelo dependiendo el día</p>
+      </div>
+
+      <div id="Trending" class="tabcontent">
+        <h3>Lista de precios</h3>
+        <p>Se mostrará los precios de mayor a menor</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-5">
+      <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+          <img src="../../../assets/img/chihuaha.jpeg" class="card-img-top img-size" alt="Chihuahua">
+          <div class="card-body">
+            <h5 class="card-title">Chihuahua</h5>
+            <p class="card-text card-body-size">Viaja a este hermoso estado, conoce el destino más popular: Puerto Vallarta por tan solo <strong>$1200</strong> redondo.</p>
+            <button class="btn btn-success">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+          <img src="../../../assets/img/jalisco.jpg" class="card-img-top img-size" alt="Jalisco">
+          <div class="card-body">
+            <h5 class="card-title">Jalisco</h5>
+            <p class="card-text card-body-size">Viaja a este hermoso estado, conoce el destino más popular: Creel por tan solo <strong>$1850</strong> redondo.</p>
+            <button class="btn btn-success">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card" style="width: 100%;">
+          <img src="../../../assets/img/quintanaroo.jpg" class="card-img-top img-size" alt="Quintana Roo">
+          <div class="card-body">
+            <h5 class="card-title">Quintana Roo</h5>
+            <p class="card-text card-body-size">Viaja a este hermoso estado, conoce el destino más popular: Cancún por tan solo <strong>$1750</strong> redondo.</p>
+            <button class="btn btn-success">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
