@@ -10,6 +10,7 @@ import { PagoComponent } from './components/pago/pago.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import {RouterModule} from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
+import {ReservaComponent} from './components/reserva/reserva.component';
 
 
 
@@ -22,7 +23,8 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
     NavbarComponent,
     PagoComponent,
     AboutusComponent,
-    RegistroComponent
+    RegistroComponent,
+    ReservaComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
       {path: 'registro', component: RegistroComponent},
       {path: 'login', component: LoginComponent},
       {path: 'pago', component: PagoComponent},
-      {path: 'aboutus', component: AboutusComponent}
+      {path: 'aboutus', component: AboutusComponent},
+      {path: 'reserva', component: ReservaComponent}
     ])
   ],
   providers: [],
