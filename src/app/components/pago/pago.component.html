@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-8">
       <h1>Sección pago</h1>
       <div class="container">
@@ -110,18 +110,36 @@
                 Datos de los pasajeros
               </div>
               <div class="card-body">
-                <h5 class="card-title">LLene los campos solicitados</h5>
+                <h5 class="card-title">Llene los campos solicitados</h5>
                 <form>
                   <div class="form-group row">
-                    <label for="staticEmail" class="col-sm-2 col-form-label">Nombre</label>
+                    <label class="col-sm-2 col-form-label">Nombre</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control-plaintext" id="staticEmail" value="Ej. ">
+                      <input type="text" class="form-control-plaintext" id="name" value="Ej. Juan">
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                    <label class="col-sm-2 col-form-label">Apellido paterno</label>
                     <div class="col-sm-8">
-                      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                      <input type="text" class="form-control" id="secondName" placeholder="Ej. Pérez">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Apellido materno</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Ej. Pérez">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Fecha de nacimiento</label>
+                    <div class="col-sm-8">
+                      <input type="date" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Numero de identficación oficial INE, Pasaporte, licencia de conducior.</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" placeholder="Ej. 23523523533555">
                     </div>
                   </div>
                 </form>
@@ -131,20 +149,57 @@
           </div>
         </div>
 
-        <!-- Botón de pago -->
-        <div class="row">
-          <div class="col-md-12 text-center">
-
-            <a href="#" class="btn btn-primary">Pagar</a>
-
-          </div>
-        </div>
-
       </div>
     </div>
 
     <div class="col-md-4">
-      <h1>Sección info de total</h1>
+      <h1>Detalle de pago</h1>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-6">
+            <p>Vuelo: </p>
+          </div>
+
+          <div class="col-md-6">
+            <p>$2463</p>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <p>IVA: </p>
+          </div>
+
+          <div class="col-md-6">
+            <p>$320</p>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-6">
+            <p class="display-5"><strong>Total:</strong> </p>
+          </div>
+
+          <div class="col-md-6">
+            <p>$2783</p>
+          </div>
+
+        </div>
+
+        <!-- Botón de pago -->
+        <div class="row">
+          <div class="col-md-12 text-center my-3">
+
+            <a href="#" class="btn btn-success">Pagar</a>
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
