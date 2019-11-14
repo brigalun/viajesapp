@@ -4,35 +4,47 @@
   <div class="row">
     <div class="col-md-12 mt-md-5 main-section">
       <div class="form">
+          
         <div class="note">
           <p> Registro-Relax Travel.</p>
         </div>
 
-        <div class="form-content">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre *" value=""/>
+        
+        <form #formRegister="ngForm" >
+          <div class="form-content">
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Nombre *" [(ngModel)]="user.name" required />
+                </div>
+                <div class="form-group">
+                  <input type="text" id="email" name="email" class="form-control" placeholder="e-mail *" [(ngModel)]="user.email" required />
+                </div>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="e-mail *" value=""/>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" id="password" name="password" class="form-control" placeholder="Contraseña *" [(ngModel)]="user.password" required />
+                </div>
+                <div class="form-group">
+                  <input type="text" id="confPasword" name="confPasword" class="form-control" placeholder="Confirmar Contraseña *"  required />
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 align-content-center">
+                <button type="button"  class="btnSubmit" (click)="onRegister()">Registrarse  </button>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Contraseña *" value=""/>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Confirmar Contraseña *" value=""/>
-              </div>
-            </div>
+
           </div>
-          <div class="row">
-            <div class="col-md-12 align-content-center">
-              <button type="button" class="btnSubmit">Registrarse</button>
-            </div>
-          </div>
-        </div>
+
+        </form>
+
       </div>
     </div>
   </div>

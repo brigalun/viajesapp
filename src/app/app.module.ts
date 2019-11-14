@@ -12,6 +12,8 @@ import {RouterModule} from '@angular/router';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import {ReservaComponent} from './components/reserva/reserva.component';
 
+import {FormsModule} from "@angular/forms";
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,7 +29,7 @@ import {ReservaComponent} from './components/reserva/reserva.component';
     ReservaComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, FormsModule, HttpClientModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: PrincipalComponent},
