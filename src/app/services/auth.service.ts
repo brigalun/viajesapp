@@ -14,17 +14,17 @@ export class AuthService {
     "Content-Type": "application/json"
   });
 
-  registerUser(name: string, email: string, password: string): Observable<any> {
+  registerUser(nombre: string, apellidos: string, email: string, password: string): Observable<any> {
     const url_api = "http://ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080/user/save";
     return this.htttp
       .post<any>(
         url_api,
         {
-          "nombre": "Brigan test",
-          "apellidos": "Test Test",
-          "email": "test@test.com",
-          "password":"1234567",
-          "activo" : true
+          nombre ,
+          apellidos,
+          email ,
+          password ,
+          activo: true
         },
         { headers: this.headers }
       );
