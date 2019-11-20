@@ -9,11 +9,11 @@ import {LoginService} from '../../services/login.service';
 })
 export class PrincipalComponent implements OnInit {
 
-  private redondo: boolean = false;
-  private sencillo: boolean = false;
+  redondo: boolean = false;
+  sencillo: boolean = false;
 
-  private vuelos: any = null;
-  constructor(private data : LoginService) { }
+  vuelos: any = null;
+  constructor(private loginService : LoginService) { }
 
   ngOnInit() {
 
@@ -47,16 +47,10 @@ export class PrincipalComponent implements OnInit {
         //Do something
       }
     }).then((result) => {
-      this.vuelos = this.data.login("adasdas", "asasd").subscribe(
+      this.loginService.login("adasdas", "asasd").subscribe(
         datos => {
-          // Si los datos retornados del servidor son de tipo String.
-        this.data = JSON.parse(datos).places;
-
-        // Si los datos retornados del servidor ya son objeto
-        this.data = datos.places;
       },
         error => {
-          console.log("Ocurió un error al obtener los datos de servidor: " + error)
         })
     })
   }
