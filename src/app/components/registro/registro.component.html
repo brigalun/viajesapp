@@ -4,35 +4,82 @@
   <div class="row">
     <div class="col-md-12 mt-md-5 main-section">
       <div class="form">
+          
         <div class="note">
           <p> Registro-Relax Travel.</p>
         </div>
 
-        <div class="form-content">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre *" value=""/>
+        
+        <form #formRegister="ngForm" >
+          <div class="form-content">
+
+            <div class="row">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" #nombre="ngModel" name="nombre" class="form-control" placeholder="Nombre *" [(ngModel)]="user.nombre" required minlength="1" />
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="nombre.touched && !nombre.valid">
+                  <div *ngIf="nombre.errors.minlength"> Nombre es Requerido</div> 
+                  <div *ngIf="nombre.errors.required"> Nombre es Requerido</div> 
+                 </div>
+
+                <div class="form-group">
+                  <input type="text" #apellido="ngModel" name="apellido" class="form-control" placeholder="Apellido *" [(ngModel)]="user.apellidos" required minlength="1" />
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="apellido.touched && !apellido.valid">
+                  <div *ngIf="apellido.errors.required"> Apellido es Requerido</div> 
+                  <div *ngIf="apellido.errors.minlength"> Apellido es Requerido</div> 
+                 </div>
+
+                <div class="form-group">
+                  <input type="text" #email="ngModel" name="email" class="form-control" placeholder="e-mail *" [(ngModel)]="user.email" required />
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="email.touched && !email.valid">
+                  <div *ngIf="email.errors.required"> Imail es Requerido</div> 
+                  <div *ngIf="email.errors.minlength"> Imail es Requerido</div> 
+                 </div>
+
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="e-mail *" value=""/>
+
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <input type="password" #password="ngModel" name="password" class="form-control" placeholder="Contraseña *" [(ngModel)]="user.password" required minlength="8" />
+                </div>
+
+                <div class="alert alert-danger" role="alert" *ngIf="password.touched && !password.valid">
+                  <div *ngIf="password.errors.minlength"> Se requiere minimo 8 caracteres</div> 
+                  <div *ngIf="password.errors.required"> Se requiere minimo 8 caracteres</div> 
+                 </div>
+
+                <div class="form-group">
+                  <input type="password" id="confPasword" name="confPasword" class="form-control" placeholder="Confirmar Contraseña *"  required minlength="1" />
+                </div>
+                <!--
+                <div class="alert alert-danger" role="alert" *ngIf="confPasword.touched && !confPasword.valid">
+                  <div *ngIf="confPasword.errors.required"> Confirma tu contraseña</div> 
+                 </div>
+                -->
+                
+
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 align-content-center">
+                <button type="button"  class="btnSubmit" (click)="onRegister(formRegister)">Registrarse  </button>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Contraseña *" value=""/>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Confirmar Contraseña *" value=""/>
-              </div>
-            </div>
+
           </div>
-          <div class="row">
-            <div class="col-md-12 align-content-center">
-              <button type="button" class="btnSubmit">Registrarse</button>
-            </div>
-          </div>
-        </div>
+
+        </form>
+
       </div>
     </div>
   </div>
