@@ -25,10 +25,6 @@
                 <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
                 <label class="custom-control-label" for="customRadioInline2">Sencillo</label>
               </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline2">Multi-destino</label>
-              </div>
             </div>
 
             <h6 class="card-title">Lugar</h6>
@@ -38,7 +34,7 @@
               <label class="labelbusqueda">Destino</label>
               <input type="text" class="datoVuelos" placeholder="Ingresa una ciudad" name="destinovuelo"><br>
             </div>
-            
+
             <h6 class="card-title">Fechas</h6>
             <div class="fechasbusqueda">
               <label class="labelfecha">Fecha Ida</label><input type="date" class="fechaVuelos" name="fechaida"><br>
@@ -63,15 +59,15 @@
               <label class="labelnumpersonas">N° de personas</label><input type="number" class="numeropersonas" name="numeropersonas" value="1">
             </div>
 
-            
-            <a href="#" class="btn btn-primary">Buscar</a>
+
+            <button class="btn btn-primary" (click)="buscar()">Buscar</button>
           </div>
         </div><br>
 
 
-        
 
-        
+
+
 
       </div>
     </div>
@@ -146,18 +142,18 @@
   </div>
 
   <div class="row my-5">
-      <div class="col-md-4">
+      <div class="col-md-4" *ngFor="let vuelo of vuelos">
         <div class="card" style="width: 100%;">
           <img src="../../../assets/img/chihuaha.jpeg" class="card-img-top img-size" alt="Chihuahua">
           <div class="card-body">
-            <h5 class="card-title">Chihuahua</h5>
-            <p class="card-text card-body-size">Viaja a este hermoso estado, conoce el destino más popular: Puerto Vallarta por tan solo <strong>$1200</strong> redondo.</p>
+            <h5 class="card-title">{{vuelo.nombre}}</h5>
+            <p class="card-text card-body-size">{{vuelo.descripcion}} <strong>$1200</strong> redondo.</p>
             <button class="btn btn-success" routerLink="/reserva">Reservar ahora</button>
           </div>
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" *ngIf="sencillo">
         <div class="card" style="width: 100%;">
           <img src="../../../assets/img/jalisco.jpg" class="card-img-top img-size" alt="Jalisco">
           <div class="card-body">
@@ -168,7 +164,7 @@
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" *ngIf="redondo">
         <div class="card" style="width: 100%;">
           <img src="../../../assets/img/quintanaroo.jpg" class="card-img-top img-size" alt="Quintana Roo">
           <div class="card-body">
