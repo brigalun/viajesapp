@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from "sweetalert2";
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-principal',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PrincipalComponent implements OnInit {
 
-  constructor() { }
+  redondo: boolean = false;
+  sencillo: boolean = false;
+
+  vuelos: any = null;
+  constructor(private loginService : LoginService) { }
 
   ngOnInit() {
 
@@ -25,5 +31,27 @@ export class PrincipalComponent implements OnInit {
     }
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
+  }
+
+  public buscar() {
+
+    this.sencillo = true;
+    this.redondo = true
+    Swal.fire({
+      title: 'Buscando los mejores vuelos para ti',
+      timer: 3000,
+      onBeforeOpen: () => {
+        Swal.showLoading();
+      },
+      onClose: () => {
+        //Do something
+      }
+    }).then((result) => {
+      this.loginService.login("adasdas", "asasd").subscribe(
+        datos => {
+      },
+        error => {
+        })
+    })
   }
 }
