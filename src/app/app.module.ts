@@ -13,7 +13,10 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import {ReservaComponent} from './components/reserva/reserva.component';
 
 import {FormsModule} from "@angular/forms";
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import {AuthService} from './services/auth.service';
+import {DataApiService} from './services/data-api.service';
+import {LoginService} from './services/login.service';
 
 
 @NgModule({
@@ -40,7 +43,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
       {path: 'reserva', component: ReservaComponent}
     ])
   ],
-  providers: [],
+  providers: [AuthService, DataApiService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
