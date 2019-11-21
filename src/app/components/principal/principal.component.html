@@ -18,31 +18,27 @@
             <h6 class="card-title">Tipo de Vuelo</h6>
             <div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline1">Redondo</label>
+                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="sencillo">
+                <label class="custom-control-label" for="customRadioInline1">Sencillo</label>
               </div>
               <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline2">Sencillo</label>
-              </div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline2">Multi-destino</label>
+                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="redondo">
+                <label class="custom-control-label" for="customRadioInline1">redondo</label>
               </div>
             </div>
 
             <h6 class="card-title">Lugar</h6>
             <div class="busqueda">
               <label class="labelbusqueda">Origen</label>
-              <input type="text" class="datoVuelos" placeholder="Aeropuerto mas cercano" name="origenvuelo"><br>
+              <input type="text" class="datoVuelos" placeholder="Aeropuerto mas cercano" name="origenvuelo" id="origenvuelo"><br>
               <label class="labelbusqueda">Destino</label>
-              <input type="text" class="datoVuelos" placeholder="Ingresa una ciudad" name="destinovuelo"><br>
+              <input type="text" class="datoVuelos" placeholder="Ingresa una ciudad" name="destinovuelo" id="destinovuelo"><br>
             </div>
             
             <h6 class="card-title">Fechas</h6>
             <div class="fechasbusqueda">
-              <label class="labelfecha">Fecha Ida</label><input type="date" class="fechaVuelos" name="fechaida"><br>
-              <label class="labelfecha">Fecha Vuelta</label><input type="date" class="fechaVuelos" name="fechavuelta"><br>
+              <label class="labelfecha">Fecha Ida</label><input type="date" class="fechaVuelos" name="fechaida" id="fechaida"><br>
+              <label class="labelfecha">Fecha Vuelta</label><input type="date" class="fechaVuelos" name="fechavuelta" id="fechavuelta"><br>
               <div class="custom-control custom-checkbox">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Sin fecha de vuelta</label>
@@ -52,7 +48,7 @@
             <h6 class="card-title">Pasajeros y Clase</h6>
             <div class="categoriavuelo">
               <label class="labelcategory">Categoria</label>
-              <select name="categoriavuelo">
+              <select name="categoriavuelo" id="categoriavuelo">
                 <option value="economy">Económica</option>
                 <option value="premiumeconomy">Premium economy</option>
                 <option value="Business">Ejecutiva/Business</option>
@@ -60,11 +56,11 @@
               </select>
               <br>
 
-              <label class="labelnumpersonas">N° de personas</label><input type="number" class="numeropersonas" name="numeropersonas" value="1">
+              <label class="labelnumpersonas">N° de personas</label><input type="number" class="numeropersonas" name="numeropersonas" id="numeropersonas" value="1">
             </div>
 
             
-            <a href="#" class="btn btn-primary">Buscar</a>
+            <a class="btn btn-primary " (click)="colocarcard()">Buscar</a>
           </div>
         </div><br>
 
@@ -75,6 +71,8 @@
 
       </div>
     </div>
+
+
 
 
     <div class="col-md-6">
@@ -179,4 +177,18 @@
         </div>
       </div>
   </div>
+
+  <div class="row my-5">
+      <div class="col-md-4" id="destiny" *ngFor="let obj of airports">
+        <div class="card" style="width: 100%;">
+          <div class="card-body">
+            <h5 class="card-title">{{obj.ciudad.nombre}}</h5>
+            <p class="card-text card-body-size">Viaja a {{obj.nombre}}, conoce el destino más popular: por tan solo <strong>$1200</strong>----</p>
+            <button class="btn btn-success" routerLink="/reserva">Reservar ahora</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
 </div>
+
