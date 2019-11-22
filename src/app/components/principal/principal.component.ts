@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from "sweetalert2";
-import {LoginService} from '../../services/login.service';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-principal',
@@ -13,7 +13,7 @@ export class PrincipalComponent implements OnInit {
   sencillo: boolean = false;
 
   vuelos: any = null;
-  constructor(private loginService : LoginService) { }
+  constructor(private authService : AuthService) { }
 
   ngOnInit() {
 
@@ -34,8 +34,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   public buscar() {
-
-    this.sencillo = true;
+    /*this.sencillo = true;
     this.redondo = true
     Swal.fire({
       title: 'Buscando los mejores vuelos para ti',
@@ -52,6 +51,6 @@ export class PrincipalComponent implements OnInit {
       },
         error => {
         })
-    })
+    })*/
   }
 }

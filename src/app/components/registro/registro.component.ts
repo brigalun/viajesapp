@@ -42,7 +42,6 @@ export class RegistroComponent implements OnInit {
   onRegister(form: NgForm): void {
 
     if (form.valid) {
-      console.log(JSON.stringify(this.user));
 
       Swal.fire({
         title: 'Enviando datos...',
@@ -54,10 +53,17 @@ export class RegistroComponent implements OnInit {
       this.authService.registerUser(this.user.nombre, this.user.apellidos, this.user.email, this.user.password)
         .subscribe( data => {
           this.router.navigate(['/login']);
-          this.succesLoginMessage.fire({
+          Swal.fire({
+            position: 'top-end',
             type: 'success',
-            title: 'Ahora puedes iniciar sesión, ¡Bienvenido!'
+            title: '¡Ya puedes iniciar sesión!',
+            showConfirmButton: false,
+            timer: 4000
           });
+          /*this.succesLoginMessage.fire({
+            type: 'success',
+            title: '¡Ya puedes iniciar sesión!'
+          });*/
         }, error => {
           Swal.fire({
             type: 'error',

@@ -9,17 +9,34 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/home" routerLinkActive="active">Home</a>
+        <li class="nav-item mx-0 mx-lg-1 my-auto">
+          <a class="nav-link py-3 px-0" routerLink="/home" routerLinkActive="active"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1 my-auto">
+          <a class="nav-link py-3 px-0" *ngIf="admin && authService.isAuthenticated()" routerLink="/adminVuelos" routerLinkActive="active"><i class="fa fa-plane"></i> Administrar Vuelos</a>
         </li>
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/aboutus" routerLinkActive="active">About us</a>
+          <a class="nav-link py-3 px-0" *ngIf="admin && authService.isAuthenticated()" routerLink="/adminUsers" routerLinkActive="active"><i class="fa fa-user-plus"></i> Administrar usuarios</a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0" routerLink="/aboutus" routerLinkActive="active"><i class="fa fa-users"></i> About us</a>
         </li>
       </ul>
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
+          <a class="nav-link py-3 px-0"
+                  routerLink="/login"
+                  routerLinkActive="active"
+                  *ngIf="!authService.isAuthenticated()"><i class="fa fa-arrow-right"></i> Iniciar Sesión
+          </a>
+        </li>
+        <li class="nav-item mx-0 mx-lg-1">
+          <a class="nav-link py-3 px-0"
+                  *ngIf="authService.isAuthenticated()"
+                  (click)="logout()">
+            <i class="fa fa-arrow-left"></i> Salir
+          </a>
         </li>
       </ul>
     </div>
