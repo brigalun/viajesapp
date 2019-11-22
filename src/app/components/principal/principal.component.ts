@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BusquedaService } from '../../services/busqueda.service';
 import Swal from "sweetalert2";
 import {LoginService} from '../../services/login.service';
 
@@ -7,17 +8,12 @@ import {LoginService} from '../../services/login.service';
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.css']
 })
+
 export class PrincipalComponent implements OnInit {
+  
+  constructor(private service: BusquedaService, private loginService : LoginService) { }
 
-  redondo: boolean = false;
-  sencillo: boolean = false;
-
-  vuelos: any = null;
-  constructor(private loginService : LoginService) { }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   public openCity(evt, cityName) {
     let i, tabcontent, tablinks;
@@ -33,10 +29,65 @@ export class PrincipalComponent implements OnInit {
     evt.currentTarget.className += " active";
   }
 
+  public obtenerTodo(){
+    var vuelos = this.service.obtenerAereopuerto().subscribe(
+    data => {
+        console.log("Datos obtenidos: ");
+        console.log(data);
+      }, error => {
+        console.log("Error:");
+        console.log(error);
+      }
+    );
+  }
+
+  public obtenerBusqueda(idciudad){
+    var vuelos = this.service.obtenerCiudad(idciudad).subscribe(
+    data => {
+        console.log("Datos obtenidos: ");
+        console.log(data);
+      }, error => {
+        console.log("Error:");
+        console.log(error);
+      }
+    );
+
+  }
+  public colocarcard(){
+    var tVuelo = (<HTMLInputElement>document.getElementById("customRadioInline1")).value;
+    var origen = (<HTMLInputElement>document.getElementById("origenvuelo")).value;
+    var destino = (<HTMLInputElement>document.getElementById("destinovuelo")).value;
+    var fechaida = (<HTMLInputElement>document.getElementById("fechaida")).value;
+    var fechavuelta = (<HTMLInputElement>document.getElementById("fechavuelta")).value;
+    var categ = (<HTMLInputElement>document.getElementById("categoriavuelo")).value;
+    var npersons = (<HTMLInputElement>document.getElementById("numeropersonas")).value;
+    if(tVuelo == "sencillo"){
+      var idciudad = this.obtenerIdCiudad(origen);
+       this.obtenerBusqueda(idciudad);
+    }
+  }
+
+  public obtenerIdCiudad(nombreciudad){
+  var id;
+    if(nombreciudad == "Querétaro")
+      id = 9;
+    if(nombreciudad == "Guadalajara")
+      id = 14;
+    if(nombreciudad == "Nuevo Laredo")
+      id = 55;
+    if(nombreciudad == "Cuernavaca")
+      id = 32;
+    if(nombreciudad == "Palenque")
+      id = 63;
+    if(nombreciudad == "Tijuana")
+      id = 13;
+    return id;
+    //Aquí iria todo lo demas
+    }
   public buscar() {
 
-    this.sencillo = true;
-    this.redondo = true
+    var sencillo = true;
+    var redondo = true
     Swal.fire({
       title: 'Buscando los mejores vuelos para ti',
       timer: 3000,
