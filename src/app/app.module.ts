@@ -16,7 +16,11 @@ import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import {AuthService} from './services/auth.service';
 import {DataApiService} from './services/data-api.service';
-import {LoginService} from './services/login.service';
+import { AdminVuelosComponent } from './components/admin-vuelos/admin-vuelos.component';
+import { AdminUsersComponent } from './components/admin-users/admin-users.component';
+import {FlightsServiceService} from './services/flights-service.service';
+import {BusquedaService} from './services/busqueda.service';
+import {AirportsService} from './services/airports.service';
 
 
 @NgModule({
@@ -29,7 +33,9 @@ import {LoginService} from './services/login.service';
     PagoComponent,
     AboutusComponent,
     RegistroComponent,
-    ReservaComponent
+    ReservaComponent,
+    AdminVuelosComponent,
+    AdminUsersComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
@@ -40,10 +46,12 @@ import {LoginService} from './services/login.service';
       {path: 'login', component: LoginComponent},
       {path: 'pago', component: PagoComponent},
       {path: 'aboutus', component: AboutusComponent},
-      {path: 'reserva', component: ReservaComponent}
+      {path: 'reserva', component: ReservaComponent},
+      {path: 'adminVuelos', component: AdminVuelosComponent},
+      {path: 'adminUsers', component: AdminUsersComponent}
     ])
   ],
-  providers: [AuthService, DataApiService, LoginService],
+  providers: [AuthService, DataApiService, FlightsServiceService, BusquedaService, AirportsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

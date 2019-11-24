@@ -14,61 +14,56 @@ export class AuthService {
     "Content-Type": "application/json"
   });
 
+  url: string = "http://ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080";
+
+  /**
+   * Registro de usuarios
+   */
   registerUser(nombre: string, apellidos: string, email: string, password: string): Observable<any> {
-    const url_api = "http://ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080/user/save";
-    return this.htttp
-      .post<any>(
-        url_api,
-        {
-          nombre ,
-          apellidos,
-          email ,
-          password ,
-          activo: true
-        },
-        { headers: this.headers }
-      );
+    let body = {nombre, apellidos, email, password, activo: true};
+    return this.htttp.post<any>(this.url + "/user/save", body,{headers: this.headers});
   }
 
-  loginuser(email: string, password: string): Observable<any> {
-    const url_api = "http://localhost:3000/api/Users/login?include=user";
-    return this.htttp
-      .post<User>(
-        url_api,
-        { email, password },
-        { headers: this.headers }
-      )
-      .pipe(map(data => data));
+  /**
+   * Login de usuarios
+   */
+  loginUser(email: string, password: string): Observable<any> {
+    let loginHeader = new HttpHeaders({
+      "Content-Type" : "application/x-www-form-urlencoded",
+      "Authorization": "Basic cmVsYXh0cmF2ZWw6UmVsQHhfVHJhdmVsMiMu"
+    });
+    let body = `username=${email}&password=${password}&grant_type=password`;
+    return this.htttp.post<User>(this.url + "/oauth/token", body, {headers : loginHeader});
   }
 
-  setUser(user: User): void {
-    let user_string = JSON.stringify(user);
-    localStorage.setItem("currentUser", user_string);
+  setCurrentUser(user: any): void {
+    localStorage.setItem("currentUser", JSON.stringify(user));
   }
 
-  setToken(token): void {
+  setToken(token: string): void {
     localStorage.setItem("accessToken", token);
   }
 
-  getToken() {
+  getToken(): string {
     return localStorage.getItem("accessToken");
   }
 
-  getCurrentUser(): User {
-    let user_string = localStorage.getItem("currentUser");
-    if (!isNullOrUndefined(user_string)) {
-      let user: User = JSON.parse(user_string);
-      return user;
-    } else {
-      return null;
+  getCurrentUser(): any {
+    let userToken = localStorage.getItem("currentUser");
+    if (!isNullOrUndefined(userToken)) {
+      return JSON.parse(userToken);
     }
+    return null;
+  }
+
+  isAuthenticated(): boolean {
+    if (this.getCurrentUser() == null || this.getToken() == null)
+      return false;
+    return true;
   }
 
   logoutUser() {
-    let accessToken = localStorage.getItem("accessToken");
-    const url_api = `http://localhost:3000/api/Users/logout?access_token=${accessToken}`;
     localStorage.removeItem("accessToken");
     localStorage.removeItem("currentUser");
-    return this.htttp.post<User>(url_api, { headers: this.headers });
   }
 }

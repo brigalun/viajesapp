@@ -1,12 +1,14 @@
 
-<!--carousel-->
-<div class= "container mb-5" >
-  <div class="row mt-5" style="background-image: url('../../../assets/img/quintanaroo.jpg')">
-    <div class="col-md-12">
-      <p class="display-1 text-white">Búsqueda</p>
+<div class="container-fluid mt-4">
+  <div class="row mb-5" style="background-image: url('../../../assets/img/vacations.jpg')">
+    <div class="col-md-12 mb-5">
+      <p class="display-1 text-white my-auto">Búsqueda</p>
     </div>
   </div><br>
+</div>
 
+<!--carousel-->
+<div class= "container mb-5" >
   <div class="row">
 
     <div class="col-md-6">
@@ -17,38 +19,43 @@
 
             <h6 class="card-title">Tipo de Vuelo</h6>
             <div>
-              <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="sencillo">
-                <label class="custom-control-label" for="customRadioInline1">Sencillo</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+                       [checked]="true" (change)="onItemChange($event)">
+                <label class="form-check-label" for="inlineRadio1">Redondo</label>
               </div>
-              <div class="custom-control custom-radio custom-control-inline">
-
-                <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" value="redondo">
-                <label class="custom-control-label" for="customRadioInline1">redondo</label>
-                <input type="radio" id="customRadioInline2" name="customRadioInline2" class="custom-control-input">
-                <label class="custom-control-label" for="customRadioInline2">Sencillo</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+                       (change)="onItemChange($event)">
+                <label class="form-check-label" for="inlineRadio2">Sencillo</label>
               </div>
             </div>
 
-            <h6 class="card-title">Lugar</h6>
-            <div class="busqueda">
+            <div>
               <label class="labelbusqueda">Origen</label>
-              <input type="text" class="datoVuelos" placeholder="Aeropuerto mas cercano" name="origenvuelo" id="origenvuelo"><br>
+              <select class="custom-select" *ngIf="aeropuertos != null" [(ngModel)]="search.origin">
+                <option selected>Elige un aeropuerto</option>
+                <option *ngFor="let aeropuerto of aeropuertos">{{aeropuerto.id + ', ' + aeropuerto.nombre + ', ' + aeropuerto.ciudad.nombre}}</option>
+              </select>
+
               <label class="labelbusqueda">Destino</label>
-              <input type="text" class="datoVuelos" placeholder="Ingresa una ciudad" name="destinovuelo" id="destinovuelo"><br>
+              <select class="custom-select" *ngIf="aeropuertos != null" [(ngModel)]="search.destination">
+                <option selected>Elige un aeropuerto</option>
+                <option *ngFor="let aeropuerto of aeropuertos">{{aeropuerto.id + ', ' + aeropuerto.nombre + ', ' + aeropuerto.ciudad.nombre}}</option>
+              </select>
             </div>
 
-            <h6 class="card-title">Fechas</h6>
-            <div class="fechasbusqueda">
-              <label class="labelfecha">Fecha Ida</label><input type="date" class="fechaVuelos" name="fechaida" id="fechaida"><br>
-              <label class="labelfecha">Fecha Vuelta</label><input type="date" class="fechaVuelos" name="fechavuelta" id="fechavuelta"><br>
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1">Sin fecha de vuelta</label>
-              </div>
+            <div class="form-group">
+              <label >Fech de ida</label>
+              <input type="date" name="bday" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" [(ngModel)]="search.dateGo">
+            </div>
+            <div class="form-group">
+              <label >Fecha de regreso</label>
+              <input type="date" name="bday" class="form-control" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" [(ngModel)]="search.dateBack">
             </div>
 
-            <h6 class="card-title">Pasajeros y Clase</h6>
+
+            <!--h6 class="card-title">Pasajeros y Clase</h6>
             <div class="categoriavuelo">
               <label class="labelcategory">Categoria</label>
               <select name="categoriavuelo" id="categoriavuelo">
@@ -60,7 +67,7 @@
               <br>
 
               <label class="labelnumpersonas">N° de personas</label><input type="number" class="numeropersonas" name="numeropersonas" id="numeropersonas" value="1">
-            </div>
+            </div-->
             <!--Se queda la función buscar -->
             <button class="btn btn-primary" (click)="buscar()">Buscar</button>
           </div>
@@ -118,79 +125,51 @@
       </div>
     </div>
   </div>
+</div>
 
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <!-- Tab links -->
-      <div class="tab">
-        <button class="tablinks" (click)="openCity($event, 'PrecioAereo')">Aereolínea</button>
-        <button class="tablinks" (click)="openCity($event, 'PrecioDia')">Dia</button>
-        <button class="tablinks" (click)="openCity($event, 'Trending')">Tendencias</button>
-      </div>
-
-      <div id="PrecioAereo" class="tabcontent">
-        <h3>Tabla con nombre de las aereolíneas</h3>
-        <p>En este espacio se mostrará los precios individuales por aereolínea y día seleccionado</p>
-      </div>
-
-      <div id="PrecioDia" class="tabcontent">
-        <h3>Tabla de precios</h3>
-        <p>Se mostrará el precio que tiene el vuelo dependiendo el día</p>
-      </div>
-
-      <div id="Trending" class="tabcontent">
-        <h3>Lista de precios</h3>
-        <p>Se mostrará los precios de mayor a menor</p>
-      </div>
+      <p class="display-3 text-center">Vuelos de ida</p>
     </div>
   </div>
 
   <div class="row my-5">
-      <div class="col-md-4" *ngFor="let vuelo of vuelos">
+      <div class="col-md-3 mx-auto" *ngFor="let vuelo of resultsGo">
         <div class="card" style="width: 100%;">
           <img src="../../../assets/img/chihuaha.jpeg" class="card-img-top img-size" alt="Chihuahua">
           <div class="card-body">
-            <h5 class="card-title">{{vuelo.nombre}}</h5>
-            <p class="card-text card-body-size">{{vuelo.descripcion}} <strong>$1200</strong> redondo.</p>
-            <button class="btn btn-success" routerLink="/reserva">Reservar ahora</button>
+            <h5 class="card-title"><strong>Te lleva</strong>: {{vuelo.aerolinea}}</h5>
+            <p class="card-text"><strong>Aeropuerto de salida:</strong> {{vuelo.aeropuertoOrigen.nombre + ' (' + vuelo.aeropuertoOrigen.iata + ')'}}</p>
+            <p class="card-text"><strong>Aeropuerto de llegada:</strong> {{vuelo.aeropuertoDestino.nombre + ' (' + vuelo.aeropuertoDestino.iata + ')'}}</p>
+            <p class="card-text">Pagas: <strong style="font-size: 18px;">{{'$' + (vuelo.precio.base + vuelo.precio.iva)}}</strong></p>
+            <button class="btn btn-success" routerLink="/reserva">Seleccionar ida</button>
           </div>
         </div>
       </div>
+  </div>
+</div>
 
-      <div class="col-md-4" *ngIf="sencillo">
-        <div class="card" style="width: 100%;">
-          <img src="../../../assets/img/jalisco.jpg" class="card-img-top img-size" alt="Jalisco">
-          <div class="card-body">
-            <h5 class="card-title">Jalisco</h5>
-            <p class="card-text card-body-size">Viaja a este hermoso estado, conoce el destino más popular: Creel por tan solo <strong>$1850</strong> redondo.</p>
-            <button class="btn btn-success" routerLink="/reserva">Reservar ahora</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-4" *ngIf="redondo">
-        <div class="card" style="width: 100%;">
-          <img src="../../../assets/img/quintanaroo.jpg" class="card-img-top img-size" alt="Quintana Roo">
-          <div class="card-body">
-            <h5 class="card-title">Quintana Roo</h5>
-            <p class="card-text card-body-size">Viaja a este hermoso estado, conoce el destino más popular: Cancún por tan solo <strong>$1750</strong> redondo.</p>
-            <button class="btn btn-success" routerLink="/reserva">Reservar ahora</button>
-          </div>
-        </div>
-      </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="display-3 text-center">Vuelos de regreso</p>
+    </div>
   </div>
 
   <div class="row my-5">
-      <div class="col-md-4" id="destiny" *ngFor="let obj of airports">
-        <div class="card" style="width: 100%;">
-          <div class="card-body">
-            <h5 class="card-title">{{obj.ciudad.nombre}}</h5>
-            <p class="card-text card-body-size">Viaja a {{obj.nombre}}, conoce el destino más popular: por tan solo <strong>$1200</strong>----</p>
-            <button class="btn btn-success" routerLink="/reserva">Reservar ahora</button>
-          </div>
+    <div class="col-md-3 mx-auto" *ngFor="let vuelo of resultsBack">
+      <div class="card" style="width: 100%;">
+        <img src="../../../assets/img/quintanaroo.jpg" class="card-img-top img-size" alt="Chihuahua">
+        <div class="card-body">
+          <h5 class="card-title"><strong>Te lleva</strong>: {{vuelo.aerolinea}}</h5>
+          <p class="card-text"><strong>Aeropuerto de salida:</strong> {{vuelo.aeropuertoOrigen.nombre + ' (' + vuelo.aeropuertoOrigen.iata + ')'}}</p>
+          <p class="card-text"><strong>Aeropuerto de llegada:</strong> {{vuelo.aeropuertoDestino.nombre + ' (' + vuelo.aeropuertoDestino.iata + ')'}}</p>
+          <p class="card-text">Pagas: <strong style="font-size: 18px;">{{'$' + (vuelo.precio.base + vuelo.precio.iva)}}</strong></p>
+          <button class="btn btn-success" routerLink="/reserva">Seleccionar regreso</button>
         </div>
       </div>
+    </div>
   </div>
-
 </div>
 

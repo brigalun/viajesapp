@@ -75,7 +75,7 @@ export class DataApiService {
     console.log(token);
     const url_api = `http://localhost:3000/api/books/${id}/?access_token=${token}`;
     return this.http
-      .delete<Book>(url_api, { headers: this.headers })
+      .get<Book>(url_api, { headers: this.headers })
       .pipe(map(data => data));
   }
 }

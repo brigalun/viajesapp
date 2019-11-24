@@ -6,8 +6,6 @@ import { Observable } from 'rxjs/internal/Observable';
 @Injectable({
   providedIn: 'root'
 })
-
-
 export class BusquedaService {
 	constructor(private http: HttpClient) { }
 	headers: HttpHeaders = new HttpHeaders({
@@ -15,8 +13,8 @@ export class BusquedaService {
   });
 
 	obtenerAereopuerto(): Observable<any>{
-		const url_api = "ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080/airport/getAll";
-		return this.http.get<any>(url_api);
+		let url_api = "ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080/airport/getAll";
+		return this.http.get<any>(url_api, {headers:this.headers});
 	}
 
 	obtenerCiudad(idCity): Observable<any>{
