@@ -19,6 +19,8 @@ import {DataApiService} from './services/data-api.service';
 import { AdminVuelosComponent } from './components/admin-vuelos/admin-vuelos.component';
 import { AdminUsersComponent } from './components/admin-users/admin-users.component';
 import {FlightsServiceService} from './services/flights-service.service';
+import {BusquedaService} from './services/busqueda.service';
+import {AirportsService} from './services/airports.service';
 
 
 @NgModule({
@@ -49,7 +51,7 @@ import {FlightsServiceService} from './services/flights-service.service';
       {path: 'adminUsers', component: AdminUsersComponent}
     ])
   ],
-  providers: [AuthService, DataApiService, FlightsServiceService],
+  providers: [AuthService, DataApiService, FlightsServiceService, BusquedaService, AirportsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

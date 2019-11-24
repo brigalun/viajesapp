@@ -76,32 +76,4 @@ export class AdminVuelosComponent implements OnInit {
     this.bnEdit = true;
   }
 
-  eliminarVuelo(idFlight) {
-    Swal.fire({
-      title: '¿Estás seguro de eliminar el vuelo seleccionado?',
-      text: "Esta operación no puede ser revertida, si eliminas el vuelo no será visible en las búsquedas de los usuarios.",
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Entiendo, borrar'
-    }).then((result) => {
-      this.flightsService.delete(idFlight, this.authService.getToken()).subscribe(
-        data => {
-          Swal.fire(
-            'Borrado',
-            'El vuelo ha sido eliminado correctamente',
-            'success'
-          );
-        }, error => {
-          Swal.fire(
-            'Error',
-            'Ocurrió un error al eliminar el vuelo: ' + error.error.error,
-            'error'
-          );
-        }
-      );
-    })
-  }
-
 }

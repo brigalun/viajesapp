@@ -27,7 +27,7 @@ export class PagoComponent implements OnInit {
     }).then((result) => {
       Swal.fire(
         'Éxito',
-        'Se ha realizado el pago!',
+        'Se ha realizado el pago y su reserva, en unos minutos recibirá un correo de confirmación',
         'success'
       );
     })

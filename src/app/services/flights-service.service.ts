@@ -8,18 +8,23 @@ import {Observable} from 'rxjs';
 export class FlightsServiceService {
 
   constructor(private http : HttpClient) { }
-  //url: string = "http://ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080";
-  url: string = "http://localhost:8080";
+  url: string = "http://ec2-52-8-193-255.us-west-1.compute.amazonaws.com:8080";
+  //url: string = "http://localhost:8080";
 
   public getAllFlights(): Observable<any> {
     return this.http.get(this.url + "/flights/getAll");
   }
 
-  public delete(id : string, token : string) : Observable<any> {
+  public getSearchFlights(type, origin, destination, dateGo, dateBack) : Observable<any>{
     let authHeader = new HttpHeaders({
-      "Content-Type" : "application/json",
-      "Authorization": "Bearer " + token
+      "Content-Type" : "application/json"
     });
-    return this.http.put<any>(this.url + "/flights/delete/" + id, null,{headers : authHeader});
+    return this.http.get<any>(this.url + "/flights/getFlights/" +
+      type + "/" +
+      origin + "/" +
+      destination + "/" +
+      dateGo + "/" +
+      dateBack +
+      "/economic", {headers : authHeader});
   }
 }
